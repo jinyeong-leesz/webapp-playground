@@ -1,0 +1,46 @@
+name: 원문 변경 확인
+
+on:
+  schedule:
+    # 매주 월요일 오전 9시 17분 (한국 시간)
+    - cron: "17 0 * * 1"
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - "tools/**"
+      - ".github/workflows/source-watch.yml"
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: 원문 확인
+        run: node tools/check-sources.mjs
+        env:
+          # PR에서는 결과만 출력하고 이슈·스냅숏은 건드리지 않습니다.
+          DRY_RUN: ${{ github.event_name == 'pull_request' }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+
+      - name: 스냅숏 저장
+        if: github.event_name != 'pull_request'
+        run: |
+          git add tools/source-snapshot.json
+          if git diff --cached --quiet; then
+            echo "저장할 변경이 없습니다."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Update source snapshot"
+          git push

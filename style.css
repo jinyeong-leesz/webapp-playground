@@ -214,6 +214,7 @@ body {
 .tag-day { color: var(--day); }
 .tag-facility { color: var(--facility); }
 .tag-common { color: var(--common); }
+.tag-stale { background: var(--check-bg); color: var(--check-text); font-weight: 600; }
 
 .table-wrap {
   overflow-x: auto;
@@ -255,6 +256,16 @@ th {
 
 .source a {
   color: var(--accent);
+}
+
+.checked {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin: 6px 0 0;
+}
+
+.checked.stale {
+  color: var(--check-text);
 }
 
 .site-footer {

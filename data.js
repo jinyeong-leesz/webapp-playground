@@ -8,6 +8,7 @@
 //   table : { head: [...], rows: [[...], ...] } (선택)
 //   check : 확인이 필요한 내용 (선택)
 //   source: [{ name, url }] (선택)
+//   checked: 이 항목을 원문과 마지막으로 대조한 날짜 (YYYY-MM-DD). 내용을 고치면 함께 바꿔 주세요.
 
 const UPDATED = "2026. 10. 21.";
 
@@ -24,7 +25,7 @@ const LINKS = {
 const ITEMS = [
   // ───────── 요약 ─────────
   {
-    cat: "summary",
+    cat: "summary", checked: "2026-10-21",
     types: ["common"],
     title: "재가급여와 시설급여 한눈에 보기",
     body: [
@@ -45,7 +46,7 @@ const ITEMS = [
     source: [LINKS.careNotice],
   },
   {
-    cat: "summary",
+    cat: "summary", checked: "2026-10-21",
     types: ["common"],
     title: "등급별로 이용할 수 있는 급여",
     body: [
@@ -59,7 +60,7 @@ const ITEMS = [
     source: [LINKS.careNotice],
   },
   {
-    cat: "summary",
+    cat: "summary", checked: "2026-10-21",
     types: ["home", "day"],
     title: "2026년 재가급여 월 한도액",
     body: [
@@ -73,7 +74,7 @@ const ITEMS = [
     source: [LINKS.careNotice],
   },
   {
-    cat: "summary",
+    cat: "summary", checked: "2026-10-21",
     types: ["facility"],
     title: "2026년 노인요양시설 1일 수가",
     body: [
@@ -91,7 +92,7 @@ const ITEMS = [
     source: [LINKS.careNotice],
   },
   {
-    cat: "summary",
+    cat: "summary", checked: "2026-10-21",
     types: ["day"],
     title: "2026년 주·야간보호 1일 수가 (예시)",
     body: [
@@ -109,7 +110,7 @@ const ITEMS = [
     source: [LINKS.careNotice],
   },
   {
-    cat: "summary",
+    cat: "summary", checked: "2026-10-21",
     types: ["home"],
     title: "방문요양 핵심 정리",
     body: [
@@ -122,7 +123,7 @@ const ITEMS = [
     source: [LINKS.careNotice],
   },
   {
-    cat: "summary",
+    cat: "summary", checked: "2026-10-21",
     types: ["day"],
     title: "주·야간보호 핵심 정리",
     body: [
@@ -134,7 +135,7 @@ const ITEMS = [
     source: [LINKS.careNotice],
   },
   {
-    cat: "summary",
+    cat: "summary", checked: "2026-10-21",
     types: ["facility"],
     title: "요양원(노인요양시설) 핵심 정리",
     body: [
@@ -147,7 +148,7 @@ const ITEMS = [
 
   // ───────── 업무 방법 ─────────
   {
-    cat: "howto",
+    cat: "howto", checked: "2026-10-21",
     types: ["facility"],
     title: "요양원 입소 상담부터 계약까지",
     body: [
@@ -161,7 +162,7 @@ const ITEMS = [
     check: "기관별 비급여 금액과 내부 계약 서식은 기관에서 확인하세요.",
   },
   {
-    cat: "howto",
+    cat: "howto", checked: "2026-10-21",
     types: ["day"],
     title: "주·야간보호 이용 계약 순서",
     body: [
@@ -174,7 +175,7 @@ const ITEMS = [
     ],
   },
   {
-    cat: "howto",
+    cat: "howto", checked: "2026-10-21",
     types: ["home"],
     title: "방문요양 서비스 시작 준비",
     body: [
@@ -187,7 +188,7 @@ const ITEMS = [
     ],
   },
   {
-    cat: "howto",
+    cat: "howto", checked: "2026-10-21",
     types: ["facility"],
     title: "시설급여 제공기준 체크리스트 (고시 제43조)",
     body: [
@@ -203,7 +204,7 @@ const ITEMS = [
     source: [LINKS.careNotice],
   },
   {
-    cat: "howto",
+    cat: "howto", checked: "2026-10-21",
     types: ["common"],
     title: "급여제공 기록 기본 흐름",
     body: [
@@ -216,7 +217,7 @@ const ITEMS = [
     check: "욕구사정·결과평가 주기는 해당 연도 평가매뉴얼에서 확인하세요.",
   },
   {
-    cat: "howto",
+    cat: "howto", checked: "2026-10-21",
     types: ["common"],
     title: "본인부담금 계산 순서",
     body: [
@@ -230,7 +231,7 @@ const ITEMS = [
     ],
   },
   {
-    cat: "howto",
+    cat: "howto", checked: "2026-10-21",
     types: ["day", "facility"],
     title: "정기평가 준비",
     body: [
@@ -245,7 +246,7 @@ const ITEMS = [
 
   // ───────── 청구 ─────────
   {
-    cat: "claim",
+    cat: "claim", checked: "2026-10-21",
     types: ["common"],
     title: "급여비용 청구 전체 흐름",
     body: [
@@ -258,7 +259,7 @@ const ITEMS = [
     source: [LINKS.claimNotice],
   },
   {
-    cat: "claim",
+    cat: "claim", checked: "2026-10-21",
     types: ["common"],
     title: "청구 정정·보완 기한",
     table: {
@@ -273,7 +274,7 @@ const ITEMS = [
     source: [LINKS.claimNotice],
   },
   {
-    cat: "claim",
+    cat: "claim", checked: "2026-10-21",
     types: ["common"],
     title: "청구명세서 작성 시 주의할 점",
     body: [
@@ -284,7 +285,7 @@ const ITEMS = [
     source: [LINKS.claimNotice],
   },
   {
-    cat: "claim",
+    cat: "claim", checked: "2026-10-21",
     types: ["facility"],
     title: "요양원 청구 체크",
     body: [
@@ -296,7 +297,7 @@ const ITEMS = [
     source: [LINKS.careNotice, LINKS.claimNotice],
   },
   {
-    cat: "claim",
+    cat: "claim", checked: "2026-10-21",
     types: ["day"],
     title: "주·야간보호 청구 체크",
     body: [
@@ -307,7 +308,7 @@ const ITEMS = [
     source: [LINKS.careNotice],
   },
   {
-    cat: "claim",
+    cat: "claim", checked: "2026-10-21",
     types: ["home"],
     title: "방문요양 청구 체크",
     body: [
@@ -319,7 +320,7 @@ const ITEMS = [
     source: [LINKS.claimNotice],
   },
   {
-    cat: "claim",
+    cat: "claim", checked: "2026-10-21",
     types: ["common"],
     title: "인건비 지출비율",
     body: [
@@ -331,27 +332,27 @@ const ITEMS = [
   },
 
   // ───────── 용어 ─────────
-  { cat: "term", types: ["common"], title: "장기요양인정서", body: ["공단이 등급판정 후 발급하는 문서. 등급, 유효기간, 이용 가능한 급여종류가 적혀 있습니다."] },
-  { cat: "term", types: ["common"], title: "개인별장기요양이용계획서", body: ["공단이 수급자에게 발급하는 이용 계획 안내서. 월 한도액과 권장 급여 등이 담겨 있습니다."] },
-  { cat: "term", types: ["common"], title: "등급판정위원회", body: ["장기요양 등급과 급여종류를 심의·판정하는 공단 위원회. 3~5등급 시설급여 인정도 여기서 결정합니다."] },
-  { cat: "term", types: ["common"], title: "인지지원등급", body: ["치매가 있으나 신체기능은 비교적 양호한 분을 위한 등급. 주·야간보호 등 일부 재가급여만 이용할 수 있습니다."] },
-  { cat: "term", types: ["home", "day"], title: "월 한도액", body: ["재가급여에서 등급별로 한 달에 쓸 수 있는 급여비용 상한. 넘긴 금액은 전액 본인부담입니다."] },
-  { cat: "term", types: ["common"], title: "본인부담금 / 공단부담금", body: ["급여비용 중 수급자가 내는 몫이 본인부담금, 공단이 기관에 지급하는 몫이 공단부담금입니다."] },
-  { cat: "term", types: ["common"], title: "감경 대상자", body: ["소득·재산 기준에 따라 본인부담이 40% 또는 60% 줄어드는 수급자. 기초생활수급자는 본인부담이 없습니다."] },
-  { cat: "term", types: ["common"], title: "비급여", body: ["장기요양급여 대상이 아니어서 전액 본인이 내는 비용. 식사재료비, 상급침실료, 이·미용비 등."] },
-  { cat: "term", types: ["common"], title: "급여제공계획서", body: ["욕구사정 결과를 바탕으로 어떤 서비스를 언제, 얼마나 제공할지 정한 계획. 수급자·보호자 설명과 서명이 필요합니다."] },
-  { cat: "term", types: ["common"], title: "급여제공기록지", body: ["실제로 제공한 서비스 내용을 기록하는 문서. 정해진 주기로 수급자·보호자에게 제공합니다."] },
-  { cat: "term", types: ["common"], title: "욕구사정평가", body: ["수급자의 신체·인지·생활 등 필요한 도움을 파악하는 평가. 급여제공계획의 근거가 됩니다."] },
-  { cat: "term", types: ["home"], title: "RFID 태그 / 비콘", body: ["방문급여 시작·종료를 기록하기 위해 수급자 가정에 붙이는 장치. 요양보호사가 앱으로 인식해 전송합니다."] },
-  { cat: "term", types: ["day"], title: "인지활동형 프로그램", body: ["5등급·인지지원등급 수급자에게 주·야간보호 이용일마다 1회 60분 이상 제공해야 하는 인지 프로그램."] },
-  { cat: "term", types: ["facility"], title: "치매전담실", body: ["치매 수급자를 위해 별도 기준으로 운영하는 시설·주간보호 공간. 일반과 구분해서 청구합니다."] },
-  { cat: "term", types: ["common"], title: "원청구 / 보완청구 / 추가청구", body: ["처음 청구가 원청구, 반려 후 보완해 다시 내는 것이 보완청구, 빠진 건을 나중에 내는 것이 추가청구입니다."] },
-  { cat: "term", types: ["common"], title: "장기근속장려금", body: ["일정 기간 이상 근무한 장기요양요원에게 지급하는 장려금. 청구 전 지급내역서를 제출합니다."] },
-  { cat: "term", types: ["common"], title: "정기평가", body: ["공단이 3년 주기로 급여유형별 장기요양기관 운영 수준을 평가하는 제도."] },
+  { cat: "term", checked: "2026-10-21", types: ["common"], title: "장기요양인정서", body: ["공단이 등급판정 후 발급하는 문서. 등급, 유효기간, 이용 가능한 급여종류가 적혀 있습니다."] },
+  { cat: "term", checked: "2026-10-21", types: ["common"], title: "개인별장기요양이용계획서", body: ["공단이 수급자에게 발급하는 이용 계획 안내서. 월 한도액과 권장 급여 등이 담겨 있습니다."] },
+  { cat: "term", checked: "2026-10-21", types: ["common"], title: "등급판정위원회", body: ["장기요양 등급과 급여종류를 심의·판정하는 공단 위원회. 3~5등급 시설급여 인정도 여기서 결정합니다."] },
+  { cat: "term", checked: "2026-10-21", types: ["common"], title: "인지지원등급", body: ["치매가 있으나 신체기능은 비교적 양호한 분을 위한 등급. 주·야간보호 등 일부 재가급여만 이용할 수 있습니다."] },
+  { cat: "term", checked: "2026-10-21", types: ["home", "day"], title: "월 한도액", body: ["재가급여에서 등급별로 한 달에 쓸 수 있는 급여비용 상한. 넘긴 금액은 전액 본인부담입니다."] },
+  { cat: "term", checked: "2026-10-21", types: ["common"], title: "본인부담금 / 공단부담금", body: ["급여비용 중 수급자가 내는 몫이 본인부담금, 공단이 기관에 지급하는 몫이 공단부담금입니다."] },
+  { cat: "term", checked: "2026-10-21", types: ["common"], title: "감경 대상자", body: ["소득·재산 기준에 따라 본인부담이 40% 또는 60% 줄어드는 수급자. 기초생활수급자는 본인부담이 없습니다."] },
+  { cat: "term", checked: "2026-10-21", types: ["common"], title: "비급여", body: ["장기요양급여 대상이 아니어서 전액 본인이 내는 비용. 식사재료비, 상급침실료, 이·미용비 등."] },
+  { cat: "term", checked: "2026-10-21", types: ["common"], title: "급여제공계획서", body: ["욕구사정 결과를 바탕으로 어떤 서비스를 언제, 얼마나 제공할지 정한 계획. 수급자·보호자 설명과 서명이 필요합니다."] },
+  { cat: "term", checked: "2026-10-21", types: ["common"], title: "급여제공기록지", body: ["실제로 제공한 서비스 내용을 기록하는 문서. 정해진 주기로 수급자·보호자에게 제공합니다."] },
+  { cat: "term", checked: "2026-10-21", types: ["common"], title: "욕구사정평가", body: ["수급자의 신체·인지·생활 등 필요한 도움을 파악하는 평가. 급여제공계획의 근거가 됩니다."] },
+  { cat: "term", checked: "2026-10-21", types: ["home"], title: "RFID 태그 / 비콘", body: ["방문급여 시작·종료를 기록하기 위해 수급자 가정에 붙이는 장치. 요양보호사가 앱으로 인식해 전송합니다."] },
+  { cat: "term", checked: "2026-10-21", types: ["day"], title: "인지활동형 프로그램", body: ["5등급·인지지원등급 수급자에게 주·야간보호 이용일마다 1회 60분 이상 제공해야 하는 인지 프로그램."] },
+  { cat: "term", checked: "2026-10-21", types: ["facility"], title: "치매전담실", body: ["치매 수급자를 위해 별도 기준으로 운영하는 시설·주간보호 공간. 일반과 구분해서 청구합니다."] },
+  { cat: "term", checked: "2026-10-21", types: ["common"], title: "원청구 / 보완청구 / 추가청구", body: ["처음 청구가 원청구, 반려 후 보완해 다시 내는 것이 보완청구, 빠진 건을 나중에 내는 것이 추가청구입니다."] },
+  { cat: "term", checked: "2026-10-21", types: ["common"], title: "장기근속장려금", body: ["일정 기간 이상 근무한 장기요양요원에게 지급하는 장려금. 청구 전 지급내역서를 제출합니다."] },
+  { cat: "term", checked: "2026-10-21", types: ["common"], title: "정기평가", body: ["공단이 3년 주기로 급여유형별 장기요양기관 운영 수준을 평가하는 제도."] },
 
   // ───────── 시스템·사이트 ─────────
   {
-    cat: "system",
+    cat: "system", checked: "2026-10-21",
     types: ["common"],
     title: "롱텀 (노인장기요양보험 포털·장기요양정보시스템)",
     body: [
@@ -363,7 +364,7 @@ const ITEMS = [
     source: [LINKS.longterm],
   },
   {
-    cat: "system",
+    cat: "system", checked: "2026-10-21",
     types: ["home"],
     title: "재가급여전자관리시스템 + 스마트장기요양 앱",
     body: [
@@ -374,7 +375,7 @@ const ITEMS = [
     source: [LINKS.longterm],
   },
   {
-    cat: "system",
+    cat: "system", checked: "2026-10-21",
     types: ["common"],
     title: "희망이음 (사회서비스정보시스템)",
     body: [
@@ -385,7 +386,7 @@ const ITEMS = [
     check: "말씀하신 '사회정보포털'이 희망이음인지, 다른 한국사회보장정보원 시스템인지 확인이 필요합니다.",
   },
   {
-    cat: "system",
+    cat: "system", checked: "2026-10-21",
     types: ["common"],
     title: "케어포(Carefor) 등 민간 기관관리 프로그램",
     body: [
@@ -394,7 +395,7 @@ const ITEMS = [
     ],
   },
   {
-    cat: "system",
+    cat: "system", checked: "2026-10-21",
     types: ["common"],
     title: "국민건강보험공단 / 보건복지부 / 국가법령정보센터",
     body: [
@@ -408,21 +409,21 @@ const ITEMS = [
 
   // ───────── 법령·매뉴얼 ─────────
   {
-    cat: "law",
+    cat: "law", checked: "2026-10-21",
     types: ["common"],
     title: "노인장기요양보험법·시행령·시행규칙",
     body: ["급여 종류, 본인부담, 기관 의무의 기본 근거입니다."],
     source: [LINKS.lawGo],
   },
   {
-    cat: "law",
+    cat: "law", checked: "2026-10-21",
     types: ["facility"],
     title: "노인복지법 시행규칙 별표4",
     body: ["노인의료복지시설(요양원)의 시설·인력·운영기준. 인력배치 근거입니다."],
     source: [LINKS.lawGo],
   },
   {
-    cat: "law",
+    cat: "law", checked: "2026-10-21",
     types: ["common"],
     title: "장기요양급여 제공기준 및 급여비용 산정방법 등에 관한 고시",
     body: [
@@ -434,28 +435,28 @@ const ITEMS = [
     source: [LINKS.careNotice],
   },
   {
-    cat: "law",
+    cat: "law", checked: "2026-10-21",
     types: ["common"],
     title: "장기요양급여비용 청구 및 심사·지급업무 처리기준",
     body: ["청구 방법·시기·서식을 정한 고시. 현행 제2026-113호 (2026. 5. 14. 시행)"],
     source: [LINKS.claimNotice],
   },
   {
-    cat: "law",
+    cat: "law", checked: "2026-10-21",
     types: ["common"],
     title: "장기요양기관 평가방법 등에 관한 고시 / 평가관리 시행세칙",
     body: ["평가 기준. 급여유형별 평가매뉴얼과 다빈도 Q&A가 따로 배포됩니다."],
     source: [LINKS.longterm],
   },
   {
-    cat: "law",
+    cat: "law", checked: "2026-10-21",
     types: ["common"],
     title: "장기요양 본인부담금 감경에 관한 고시",
     body: ["감경 대상과 기준을 정한 고시입니다."],
     source: [LINKS.lawRoom],
   },
   {
-    cat: "law",
+    cat: "law", checked: "2026-10-21",
     types: ["common"],
     title: "재무·회계 규칙",
     body: [
@@ -467,14 +468,14 @@ const ITEMS = [
     source: [LINKS.lawGo],
   },
   {
-    cat: "law",
+    cat: "law", checked: "2026-10-21",
     types: ["facility"],
     title: "장기요양기관 폐쇄회로 텔레비전(CCTV) 고시",
     body: ["시설 CCTV 해상도 등 설치·운영 기준입니다."],
     source: [LINKS.lawRoom],
   },
   {
-    cat: "law",
+    cat: "law", checked: "2026-10-21",
     types: ["home"],
     title: "재가급여전자관리시스템(RFID) 가이드북",
     body: ["방문급여 태그 사용법과 오류 처리 안내서입니다."],

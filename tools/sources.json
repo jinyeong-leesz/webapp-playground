@@ -1,0 +1,17 @@
+[
+  {
+    "id": "lawRoom",
+    "name": "공단 법령자료실 (장기요양 고시 목록)",
+    "url": "https://www.nhis.or.kr/lm/lmxsrv/law/lawListManager.do?LAWGROUP=2"
+  },
+  {
+    "id": "careNotice",
+    "name": "장기요양급여 제공기준 및 급여비용 산정방법 등에 관한 고시",
+    "url": "https://www.nhis.or.kr/lm/lmxsrv/law/lawFullContent.do?SEQ=1637"
+  },
+  {
+    "id": "claimNotice",
+    "name": "장기요양급여비용 청구 및 심사·지급업무 처리기준",
+    "url": "https://www.nhis.or.kr/lm/lmxsrv/law/lawFullContent.do?SEQ=101"
+  }
+]

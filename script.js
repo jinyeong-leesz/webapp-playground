@@ -17,6 +17,9 @@ const TYPES = [
   { id: "common", label: "공통" },
 ];
 
+// 원문과 대조한 지 이 기간이 지나면 '다시 확인' 표시를 붙입니다.
+const STALE_DAYS = 180;
+
 const state = { cat: "all", type: "all", query: "" };
 
 const listEl = document.getElementById("list");
@@ -89,14 +92,21 @@ function renderTable(table) {
   return wrap;
 }
 
+function isStale(checked) {
+  const days = (Date.now() - new Date(checked + "T00:00:00+09:00").getTime()) / 86400000;
+  return days > STALE_DAYS;
+}
+
 function renderItem(item) {
   const card = el("details", "card");
   if (state.query) card.open = true;
+  const stale = isStale(item.checked);
 
   const summary = el("summary");
   const tags = el("span", "tags");
   tags.appendChild(el("span", "tag tag-cat", labelOf(CATS, item.cat)));
   item.types.forEach((t) => tags.appendChild(el("span", "tag tag-" + t, labelOf(TYPES, t))));
+  if (stale) tags.appendChild(el("span", "tag tag-stale", "다시 확인"));
   summary.append(tags, el("span", "card-title", item.title));
   card.appendChild(summary);
 
@@ -117,6 +127,9 @@ function renderItem(item) {
     });
     body.appendChild(src);
   }
+  const checked = el("p", stale ? "checked stale" : "checked", "원문 확인일: " + item.checked.split("-").map(Number).join(". ") + ".");
+  if (stale) checked.textContent += ` ${STALE_DAYS}일이 지났으니 원문을 다시 확인하세요.`;
+  body.appendChild(checked);
   card.appendChild(body);
   return card;
 }
