@@ -7,6 +7,8 @@ const CATS = [
   { id: "term", label: "용어" },
   { id: "system", label: "시스템·사이트" },
   { id: "law", label: "법령·매뉴얼" },
+  { id: "form", label: "서식" },
+  { id: "check", label: "체크리스트" },
 ];
 
 const TYPES = [
@@ -39,7 +41,99 @@ function labelOf(list, id) {
 function itemText(item) {
   const parts = [item.title, ...(item.body || []), item.check || ""];
   if (item.table) parts.push(...item.table.head, ...item.table.rows.flat());
+  if (item.template) parts.push(item.template);
+  if (item.checklist) parts.push(...item.checklist);
   return parts.join(" ").toLowerCase();
+}
+
+// 체크 상태는 보는 사람의 기기에만 저장합니다. 저장이 막힌 환경이면 화면에서만 유지됩니다.
+const CHECK_KEY = "ltc-checklists";
+
+function loadChecks() {
+  try {
+    return JSON.parse(localStorage.getItem(CHECK_KEY)) || {};
+  } catch {
+    return {};
+  }
+}
+
+function saveChecks(checks) {
+  try {
+    localStorage.setItem(CHECK_KEY, JSON.stringify(checks));
+  } catch {
+    // 저장할 수 없으면 무시합니다.
+  }
+}
+
+const checks = loadChecks();
+
+function renderTemplate(text) {
+  const wrap = el("div", "template");
+  const pre = el("pre", null, text);
+  const btn = el("button", "copy-btn", "양식 복사");
+  btn.type = "button";
+  btn.addEventListener("click", () => {
+    const done = () => {
+      btn.textContent = "복사됨";
+      setTimeout(() => (btn.textContent = "양식 복사"), 1500);
+    };
+    const fallback = () => {
+      const range = document.createRange();
+      range.selectNodeContents(pre);
+      const sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+      btn.textContent = "선택됨. 직접 복사하세요";
+    };
+    if (navigator.clipboard) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  });
+  wrap.append(btn, pre);
+  return wrap;
+}
+
+function renderChecklist(item) {
+  const key = item.title;
+  const state = checks[key] || [];
+  const wrap = el("div", "checklist");
+  const progress = el("p", "check-progress");
+  const update = () => {
+    const n = item.checklist.filter((_, i) => state[i]).length;
+    progress.textContent = `${n} / ${item.checklist.length} 완료`;
+  };
+  const list = el("ul");
+  const boxes = item.checklist.map((text, i) => {
+    const li = el("li");
+    const label = el("label");
+    const box = el("input");
+    box.type = "checkbox";
+    box.id = `chk-${ITEMS.indexOf(item)}-${i}`;
+    box.checked = Boolean(state[i]);
+    box.addEventListener("change", () => {
+      state[i] = box.checked;
+      checks[key] = state;
+      saveChecks(checks);
+      update();
+    });
+    label.append(box, el("span", null, text));
+    li.appendChild(label);
+    list.appendChild(li);
+    return box;
+  });
+  const reset = el("button", "reset-btn", "체크 모두 지우기");
+  reset.type = "button";
+  reset.addEventListener("click", () => {
+    state.length = 0;
+    boxes.forEach((b) => (b.checked = false));
+    checks[key] = state;
+    saveChecks(checks);
+    update();
+  });
+  const bar = el("div", "check-bar");
+  bar.append(progress, reset);
+  wrap.append(bar, list);
+  update();
+  return wrap;
 }
 
 function matches(item) {
@@ -113,6 +207,8 @@ function renderItem(item) {
   const body = el("div", "card-body");
   if (item.body) body.appendChild(renderBody(item.body));
   if (item.table) body.appendChild(renderTable(item.table));
+  if (item.template) body.appendChild(renderTemplate(item.template));
+  if (item.checklist) body.appendChild(renderChecklist(item));
   if (item.check) body.appendChild(el("p", "check", "확인 필요: " + item.check));
   if (item.source) {
     const src = el("p", "source");
