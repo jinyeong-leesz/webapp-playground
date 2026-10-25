@@ -13,25 +13,5 @@
     "id": "claimNotice",
     "name": "장기요양급여비용 청구 및 심사·지급업무 처리기준",
     "url": "https://www.nhis.or.kr/lm/lmxsrv/law/lawFullContent.do?SEQ=101"
-  },
-  {
-    "id": "probeLawCare",
-    "name": "[시험] 국가법령정보센터 급여제공기준 고시",
-    "url": "https://www.law.go.kr/행정규칙/장기요양급여제공기준및급여비용산정방법등에관한고시"
-  },
-  {
-    "id": "probeLawAct",
-    "name": "[시험] 국가법령정보센터 노인장기요양보험법",
-    "url": "https://www.law.go.kr/법령/노인장기요양보험법"
-  },
-  {
-    "id": "probeLongterm",
-    "name": "[시험] 노인장기요양보험 홈페이지",
-    "url": "https://www.longtermcare.or.kr"
-  },
-  {
-    "id": "probeMohw",
-    "name": "[시험] 보건복지부",
-    "url": "https://www.mohw.go.kr"
   }
 ]
