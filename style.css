@@ -1,11 +1,18 @@
 :root {
-  --bg: #f7f7f5;
+  --bg: #f6f6f3;
   --surface: #ffffff;
   --text: #222222;
   --muted: #666666;
   --accent: #2f6fdf;
   --accent-text: #ffffff;
   --border: #e2e2e2;
+  --chip: #eeeeea;
+  --check-bg: #fff6e0;
+  --check-text: #7a5300;
+  --home: #2b8a5e;
+  --day: #c26a12;
+  --facility: #7b4fc9;
+  --common: #6b6b6b;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -17,6 +24,13 @@
     --accent: #5b8ff0;
     --accent-text: #ffffff;
     --border: #34363a;
+    --chip: #2e3034;
+    --check-bg: #3a3020;
+    --check-text: #f0c46a;
+    --home: #4fbf8b;
+    --day: #eb9a4a;
+    --facility: #a985ec;
+    --common: #a0a0a0;
   }
 }
 
@@ -35,18 +49,18 @@ body {
 .site-header,
 .container,
 .site-footer {
-  max-width: 720px;
+  max-width: 820px;
   margin: 0 auto;
   padding: 0 16px;
 }
 
 .site-header {
-  padding-top: 40px;
+  padding-top: 32px;
 }
 
 .site-header h1 {
   margin: 0;
-  font-size: 1.8rem;
+  font-size: 1.7rem;
 }
 
 .subtitle {
@@ -55,41 +69,196 @@ body {
 }
 
 .container {
-  padding-top: 24px;
+  padding-top: 20px;
   padding-bottom: 24px;
 }
 
+/* 검색·필터 */
+.controls {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: var(--bg);
+  padding: 8px 0 12px;
+  display: grid;
+  gap: 10px;
+}
+
+#search {
+  width: 100%;
+  font: inherit;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--text);
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.filter-label {
+  font-size: 0.85rem;
+  color: var(--muted);
+  flex-shrink: 0;
+}
+
+.chips,
+.tabs {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  min-width: 0;
+}
+
+.controls > * {
+  min-width: 0;
+}
+
+.chips button,
+.tabs button {
+  font: inherit;
+  font-size: 0.9rem;
+  padding: 6px 12px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.tabs button {
+  border-radius: 8px;
+}
+
+.chips button[aria-pressed="true"],
+.tabs button[aria-pressed="true"] {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-text);
+}
+
+.result-count {
+  margin: 4px 0 10px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* 카드 */
+.list {
+  display: grid;
+  gap: 10px;
+}
+
 .card {
+  min-width: 0;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 12px;
-  padding: 20px;
 }
 
-.card h2 {
-  margin-top: 0;
-  font-size: 1.2rem;
-}
-
-button {
-  font: inherit;
-  padding: 10px 18px;
-  border: none;
-  border-radius: 8px;
-  background: var(--accent);
-  color: var(--accent-text);
+.card summary {
+  list-style: none;
   cursor: pointer;
+  padding: 14px 16px;
+  display: grid;
+  gap: 4px;
 }
 
-button:hover {
-  opacity: 0.9;
+.card summary::-webkit-details-marker {
+  display: none;
 }
 
-.count {
+.card-title {
+  font-weight: 600;
+}
+
+.card[open] summary {
+  border-bottom: 1px solid var(--border);
+}
+
+.card-body {
+  padding: 8px 16px 14px;
+}
+
+.card-body ul,
+.card-body ol {
+  padding-left: 1.3em;
+  margin: 8px 0;
+}
+
+.card-body li {
+  margin: 3px 0;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.tag {
+  font-size: 0.72rem;
+  padding: 1px 8px;
+  border-radius: 999px;
+  background: var(--chip);
+  color: var(--muted);
+}
+
+.tag-home { color: var(--home); }
+.tag-day { color: var(--day); }
+.tag-facility { color: var(--facility); }
+.tag-common { color: var(--common); }
+
+.table-wrap {
+  overflow-x: auto;
+  margin: 10px 0;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.88rem;
+}
+
+th,
+td {
+  border: 1px solid var(--border);
+  padding: 6px 8px;
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  background: var(--chip);
+  white-space: nowrap;
+}
+
+.check {
+  background: var(--check-bg);
+  color: var(--check-text);
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-size: 0.88rem;
+}
+
+.source {
+  font-size: 0.85rem;
+  color: var(--muted);
   margin-bottom: 0;
+}
+
+.source a {
+  color: var(--accent);
 }
 
 .site-footer {
   padding-bottom: 40px;
   color: var(--muted);
+  font-size: 0.85rem;
 }
