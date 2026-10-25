@@ -124,8 +124,11 @@ for (const source of sources) {
     }
     snapshot[source.id] = { ...now, checkedAt: today };
   } catch (err) {
-    console.log(`${source.name}: 확인 실패 (${err.message})`);
-    failures.push({ source, reason: err.message });
+    // fetch는 원인을 cause에 담고 message는 "fetch failed"로만 남기므로 함께 적습니다.
+    const cause = err.cause ? ` / ${err.cause.code || ""} ${err.cause.message || ""}`.trimEnd() : "";
+    const reason = err.message + cause;
+    console.log(`${source.name}: 확인 실패 (${reason})`);
+    failures.push({ source, reason });
   }
 }
 
