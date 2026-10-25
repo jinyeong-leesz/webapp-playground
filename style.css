@@ -240,6 +240,90 @@ th {
   white-space: nowrap;
 }
 
+/* 서식 */
+.template {
+  display: grid;
+  gap: 8px;
+  margin: 10px 0;
+}
+
+.template pre {
+  margin: 0;
+  padding: 12px;
+  background: var(--chip);
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 0.88rem;
+  white-space: pre-wrap;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+.copy-btn,
+.reset-btn {
+  justify-self: start;
+  font: inherit;
+  font-size: 0.85rem;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.copy-btn {
+  border: none;
+  background: var(--accent);
+  color: var(--accent-text);
+}
+
+.reset-btn {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--muted);
+}
+
+/* 체크리스트 */
+.check-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.check-progress {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.checklist ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.checklist label {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 6px 0;
+  cursor: pointer;
+}
+
+.checklist input {
+  width: 18px;
+  height: 18px;
+  margin-top: 3px;
+  flex-shrink: 0;
+  accent-color: var(--accent);
+}
+
+.checklist input:checked + span {
+  color: var(--muted);
+  text-decoration: line-through;
+}
+
 .check {
   background: var(--check-bg);
   color: var(--check-text);
