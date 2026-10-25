@@ -1,0 +1,95 @@
+:root {
+  --bg: #f7f7f5;
+  --surface: #ffffff;
+  --text: #222222;
+  --muted: #666666;
+  --accent: #2f6fdf;
+  --accent-text: #ffffff;
+  --border: #e2e2e2;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #18191b;
+    --surface: #232427;
+    --text: #ececec;
+    --muted: #a0a0a0;
+    --accent: #5b8ff0;
+    --accent-text: #ffffff;
+    --border: #34363a;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.site-header,
+.container,
+.site-footer {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.site-header {
+  padding-top: 40px;
+}
+
+.site-header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.subtitle {
+  margin: 4px 0 0;
+  color: var(--muted);
+}
+
+.container {
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.card h2 {
+  margin-top: 0;
+  font-size: 1.2rem;
+}
+
+button {
+  font: inherit;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  background: var(--accent);
+  color: var(--accent-text);
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+.count {
+  margin-bottom: 0;
+}
+
+.site-footer {
+  padding-bottom: 40px;
+  color: var(--muted);
+}
